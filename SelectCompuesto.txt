@@ -1,0 +1,7 @@
+
+Select v.id_venta, vdr.nombre_vendedor, vdr.correo_vendedor, v.documento_cliente, c.nombre_cliente, c.edad, c.correo, d.id_pelicula, d.cantidad_tickets, p.nombre_pelicula, p.genero, p.hora, p.precio
+FROM venta v, vendedores vdr, clientes c, detalle_venta d, pelicula p
+WHERE v.documento_cliente = c.documento_cliente
+AND v.documento_vendedor = vdr.documento_vendedor
+AND d.id_venta = v.id_venta
+AND d.id_pelicula = p.id_pelicula
