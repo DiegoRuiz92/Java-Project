@@ -302,19 +302,13 @@ public class frmBuscarVentas extends javax.swing.JInternalFrame {
 
             cc = new Conexion();
             cn = cc.conectar();
-            /*ps = cn.prepareStatement("SELECT c.id_curso, c.nombre_curso, c.intensidad_horaria, c.precio, c.profesor, p.nombre, p.asignatura, p.valor_hora, d.documento_estudiante, e.nombre, e.correo, e.carrera\n"
-                    + "FROM cursos c, profesores p, detalle_curso d, estudiantes e\n"
-                    + "WHERE c.profesor = p.documento_profesor\n"
-                    + "AND d.id_curso = c.id_curso\n"
-                    + "AND d.documento_estudiante = e.documento_estudiante\n"
-                    + "AND c.id_curso = ?");*/
-            ps = cn.prepareStatement("Select v.id_venta, vdr.nombre_vendedor, vdr.correo_vendedor, v.documento_cliente, c.nombre_cliente, c.edad, c.correo, d.id_pelicula, d.cantidad_tickets, p.nombre_pelicula, p.genero, p.hora, p.precio\n" +
-                                        "FROM venta v, vendedores vdr, clientes c, detalle_venta d, pelicula p\n" +
-                                        "WHERE v.documento_cliente = c.documento_cliente\n" +
-                                        "AND v.documento_vendedor = vdr.documento_vendedor\n" +
-                                        "AND d.id_venta = v.id_venta\n" +
-                                        "AND d.id_pelicula = p.id_pelicula\n" +
-                                        "AND v.id_venta = ?");
+            ps = cn.prepareStatement("Select v.id_venta, vdr.nombre_vendedor, vdr.correo_vendedor, v.documento_cliente, c.nombre_cliente, c.edad, c.correo, d.id_pelicula, d.cantidad_tickets, p.nombre_pelicula, p.genero, p.hora, p.precio\n"
+                    + "FROM venta v, vendedores vdr, clientes c, detalle_venta d, pelicula p\n"
+                    + "WHERE v.documento_cliente = c.documento_cliente\n"
+                    + "AND v.documento_vendedor = vdr.documento_vendedor\n"
+                    + "AND d.id_venta = v.id_venta\n"
+                    + "AND d.id_pelicula = p.id_pelicula\n"
+                    + "AND v.id_venta = ?");
             ps.setInt(1, id_venta);
             rs = ps.executeQuery();
 
@@ -368,7 +362,7 @@ public class frmBuscarVentas extends javax.swing.JInternalFrame {
             contenido.showText("Nombre Cliente: " + lblNombreCliente.getText() + " ");
             contenido.showText("Edad: " + lblEdadCliente.getText() + " ");
             contenido.showText("Correo: " + lblCorreoCliente.getText() + " ");
-            
+
             contenido.endText();
             //}
 
